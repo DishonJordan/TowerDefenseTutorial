@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 910bcb715cd3344619df786cb0658efb, type: 3}
-  m_Name: Sample_Agent1
+  m_Name: SampleAgent1
   m_EditorClassIdentifier: 
-  agentName: 
+  agentName: Sample_Agent_1
   agentDescription: 
   agentPrefab: {fileID: 0}
