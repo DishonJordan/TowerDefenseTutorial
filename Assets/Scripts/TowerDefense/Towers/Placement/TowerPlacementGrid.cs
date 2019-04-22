@@ -201,10 +201,39 @@ namespace TowerDefense.Towers.Placement
 			}
 		}
 
-		/// <summary>
-		/// Initialize values
-		/// </summary>
-		protected virtual void Awake()
+        public bool isMovable()
+        {
+            return false;
+        }
+
+        public string getMovementScriptName()
+        {
+            return null;
+        }
+
+        public Transform getStartTransform()
+        {
+            return null;
+        }
+
+        public Transform getMiddleTransform()
+        {
+            return null;
+        }
+
+        public Transform getEndTransform()
+        {
+            return null;
+        }
+
+        public float getSpeed()
+        {
+            return 0.0f;
+        }
+        /// <summary>
+        /// Initialize values
+        /// </summary>
+        protected virtual void Awake()
 		{
 			ResizeCollider();
 

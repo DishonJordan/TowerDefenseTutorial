@@ -110,11 +110,41 @@ namespace TowerDefense.Towers.Placement
 			}
 		}
 
+        public bool isMovable()
+        {
+            return false;
+        }
+
+        public string getMovementScriptName()
+        {
+            return null;
+        }
+
+        public Transform getStartTransform()
+        {
+            return null;
+        }
+
+        public Transform getMiddleTransform()
+        {
+            return null;
+        }
+
+        public Transform getEndTransform()
+        {
+            return null;
+        }
+
+        public float getSpeed()
+        {
+            return 0.0f;
+        }
+
 #if UNITY_EDITOR
-		/// <summary>
-		/// Draw the spot as a smalls phere in the scene view.
-		/// </summary>
-		void OnDrawGizmos()
+        /// <summary>
+        /// Draw the spot as a smalls phere in the scene view.
+        /// </summary>
+        void OnDrawGizmos()
 		{
 			Color prevCol = Gizmos.color;
 			Gizmos.color = Color.cyan;
@@ -130,6 +160,10 @@ namespace TowerDefense.Towers.Placement
 			// Draw icon too
 			Gizmos.DrawIcon(transform.position + Vector3.up, "build_zone.png", true);
 		}
+
+
+
+
 #endif
-	}
+    }
 }
