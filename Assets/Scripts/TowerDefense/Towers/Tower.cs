@@ -102,6 +102,25 @@ namespace TowerDefense.Towers
 				transform.position = placementArea.GridToWorld(destination, dimensions);
 				transform.rotation = placementArea.transform.rotation;
 				targetArea.Occupy(destination, dimensions);
+                if (placementArea.isMovable()) {
+                    if (placementArea.getMovementScriptName().Equals("LinearTowerMovement"))
+                    {
+                        var script = gameObject.AddComponent <LinearTowerMovement> ();
+                        script.speed = placementArea.getSpeed();
+                        script.start_position = placementArea.getStartTransform();
+                        script.end_position = placementArea.getEndTransform();
+
+                    }
+                    else if (placementArea.getMovementScriptName().Equals("LTowerMovement"))
+                    {
+
+                    }
+                    else {
+                        Debug.Log("INVALID MOVEMENT SCRIPT");
+                    }
+
+
+                }
 			}
 
 			SetLevel(0);
@@ -295,5 +314,6 @@ namespace TowerDefense.Towers
 			bool initialise = current == LevelState.AllEnemiesSpawned || current == LevelState.SpawningEnemies;
 			currentTowerLevel.SetAffectorState(initialise);
 		}
+
 	}
 }
