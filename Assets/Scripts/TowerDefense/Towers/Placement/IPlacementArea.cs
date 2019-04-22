@@ -44,6 +44,25 @@ namespace TowerDefense.Towers.Placement
 		/// <param name="gridPos">The grid location</param>
 		/// <param name="size">The size of the item</param>
 		void Clear(IntVector2 gridPos, IntVector2 size);
+
+        //Returns whether or not the placement area causes the towers to move
+        bool isMovable();
+
+        //Returns the nsame of the associated game movement script
+        string getMovementScriptName();
+
+        //Returns the transform of the start position
+        Transform getStartTransform();
+
+        //Returns the transform of the middle position
+        Transform getMiddleTransform();
+
+        //Returns the transform of the end position
+        Transform getEndTransform();
+
+        //Returns the speed 
+        float getSpeed();
+
 	}
 
 	public static class PlacementAreaExtensions
