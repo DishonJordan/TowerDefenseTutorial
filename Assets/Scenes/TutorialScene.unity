@@ -528,9 +528,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a43dba2f301c4ab870d538c4633eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start_position: {fileID: 814645081}
-  end_position: {fileID: 1762297833}
-  speed: 1
+  speed: 5.44
+  points:
+  - {x: 0.44499612, y: 0, z: 7e-45}
+  - {x: 8e-45, y: 1.8796302e-34, z: 0}
 --- !u!114 &761164008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,10 +544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd92dd57427dec47bc2e91c7838679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start_position: {fileID: 471069766}
-  middle_position: {fileID: 1911020493}
-  end_position: {fileID: 1480454392}
   speed: 1
+  points:
+  - {x: 6.343025e+12, y: 0, z: 0}
+  - {x: 0, y: 1.8796302e-34, z: 0}
+  - {x: 4.6e-44, y: 0, z: 6.343025e+12}
+  - {x: 0, y: 6.343042e+12, z: 0}
 --- !u!1 &814645080
 GameObject:
   m_ObjectHideFlags: 0
