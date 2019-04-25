@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class LinearTowerMovement : MonoBehaviour
 {
-    //The position designating the start position of the turret's movement.
-    public Transform start_position;
-    //The position designating the end position of the turret's movement.
-    public Transform end_position;
-    //The speed that the turret oscillates.
+    //Tower movement speed
     public float speed;
 
-    float initial_time;
+    //Defines that part of the traversal we are on
+    int segment;
+
+    //Holds an ordered set of points to be traversed 
+    public Vector3[] points = new Vector3[2];
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = start_position.position;
-        initial_time = Time.time;
+        //Initializing the segments, start position
+        segment = 1;
+        transform.position = points[0];
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        transform.position = Vector3.Lerp(start_position.position, end_position.position, Mathf.PingPong((Time.time - initial_time) * speed, 1.0f));
+        transform.position = Vector3.MoveTowards(transform.position, points[segment], Time.deltaTime * speed);
+        if (transform.position == points[segment])
+            segment = (segment == 1) ? 0 : segment + 1;
     }
 }
