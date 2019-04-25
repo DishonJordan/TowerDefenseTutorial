@@ -127,19 +127,20 @@ namespace TowerDefense.Towers.Placement
             return "LinearTowerMovement";
         }
 
-        public Transform getStartTransform()
+        public Vector3 getStartVector()
         {
-            return start_position;
+            return start_position.position;
         }
 
-        public Transform getMiddleTransform()
+        public Vector3 getMiddleVector()
         {
-            return null;
+            Debug.Log("Error: Linear Tower Placement Area does not have a middle node");
+            return Vector3.zero;
         }
 
-        public Transform getEndTransform()
+        public Vector3 getEndVector()
         {
-            return end_position;
+            return end_position.position;
         }
 
         public float getSpeed()
