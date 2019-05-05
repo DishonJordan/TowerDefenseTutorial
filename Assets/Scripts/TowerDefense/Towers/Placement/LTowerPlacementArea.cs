@@ -13,12 +13,12 @@ namespace TowerDefense.Towers.Placement
         /// <summary>
         /// Visualisation prefab to instantiate
         /// </summary>
-        public PlacementTile placementTilePrefab;
+        public PlacementTile PlacementTilePrefab;
 
         /// <summary>
         /// Visualisation prefab to instantiate on mobile platforms
         /// </summary>
-        public PlacementTile placementTilePrefabMobile;
+        public PlacementTile PlacementTilePrefabMobile;
 
         /// <summary>
         /// <see cref="PlacementTile"/> we've spawned on our spot
@@ -42,9 +42,9 @@ namespace TowerDefense.Towers.Placement
         {
             PlacementTile tileToUse;
 #if UNITY_STANDALONE
-            tileToUse = placementTilePrefab;
+            tileToUse = PlacementTilePrefab;
 #else
-			tileToUse = placementTilePrefabMobile;
+			tileToUse = PlacementTilePrefabMobile;
 #endif
 
             if (tileToUse != null)
