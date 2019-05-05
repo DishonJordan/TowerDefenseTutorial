@@ -110,36 +110,36 @@ namespace TowerDefense.Towers.Placement
             }
         }
 
-        public bool isMovable()
+        public bool IsMovable()
         {
             return false;
         }
 
-        public string getMovementScriptName()
+        public string GetMovementScriptName()
         {
             Debug.Log("Error: Single Tower Placement Area is a non movable placement area");
             return "INVALID";
         }
 
-        public Vector3 getStartVector()
+        public Vector3 GetStartVector()
         {
             Debug.Log("Error: Single Tower Placement Area is a non movable placement area");
             return Vector3.zero;
         }
 
-        public Vector3 getMiddleVector()
+        public Vector3 GetMiddleVector()
         {
             Debug.Log("Error: Single Tower Placement Area is a non movable placement area");
             return Vector3.zero;
         }
 
-        public Vector3 getEndVector()
+        public Vector3 GetEndVector()
         {
             Debug.Log("Error: Single Tower Placement Area is a non movable placement area");
             return Vector3.zero;
         }
 
-        public float getSpeed()
+        public float GetSpeed()
         {
             Debug.Log("Error: Single Tower Placement Area is a non movable placement area");
             return 0.0f;

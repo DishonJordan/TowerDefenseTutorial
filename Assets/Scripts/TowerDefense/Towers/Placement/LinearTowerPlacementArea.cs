@@ -13,28 +13,25 @@ namespace TowerDefense.Towers.Placement
         /// <summary>
         /// Visualisation prefab to instantiate
         /// </summary>
-        public PlacementTile placementTilePrefab;
+        public PlacementTile PlacementTilePrefab;
 
         /// <summary>
         /// Visualisation prefab to instantiate on mobile platforms
         /// </summary>
-        public PlacementTile placementTilePrefabMobile;
+        public PlacementTile PlacementTilePrefabMobile;
 
         /// <summary>
         /// <see cref="PlacementTile"/> we've spawned on our spot
         /// </summary>
-        PlacementTile m_SpawnedTile;
+        private PlacementTile spawnedTile;
 
         /// <summary>
         /// If the area is occupied
         /// </summary>
-        bool m_IsOccupied;
+        private bool isOccupied;
 
-        //The position designating the start position of the turret's movement.
-        public Transform start_position;
-        //The position designating the end position of the turret's movement.
-        public Transform end_position;
-        //The speed that the turret oscillates.
+        public Transform startPosition;
+        public Transform endPosition;
         public float speed;
 
         /// <summary>
@@ -44,16 +41,16 @@ namespace TowerDefense.Towers.Placement
         {
             PlacementTile tileToUse;
 #if UNITY_STANDALONE
-            tileToUse = placementTilePrefab;
+            tileToUse = PlacementTilePrefab;
 #else
-			tileToUse = placementTilePrefabMobile;
+			tileToUse = PlacementTilePrefabMobile;
 #endif
 
             if (tileToUse != null)
             {
-                m_SpawnedTile = Instantiate(tileToUse);
-                m_SpawnedTile.transform.SetParent(transform);
-                m_SpawnedTile.transform.localPosition = new Vector3(0f, 0.05f, 0f);
+                spawnedTile = Instantiate(tileToUse);
+                spawnedTile.transform.SetParent(transform);
+                spawnedTile.transform.localPosition = new Vector3(0f, 0.05f, 0f);
             }
         }
 
@@ -84,7 +81,14 @@ namespace TowerDefense.Towers.Placement
         /// <param name="size">The size of the item</param>
         public TowerFitStatus Fits(IntVector2 gridPos, IntVector2 size)
         {
-            return m_IsOccupied ? TowerFitStatus.Overlaps : TowerFitStatus.Fits;
+            if (isOccupied)
+            {
+                return TowerFitStatus.Overlaps;
+            }
+            else
+            {
+                return TowerFitStatus.Fits;
+            }
         }
 
         /// <summary>
@@ -94,11 +98,11 @@ namespace TowerDefense.Towers.Placement
         /// <param name="size"></param>
         public void Occupy(IntVector2 gridPos, IntVector2 size)
         {
-            m_IsOccupied = true;
+            isOccupied = true;
 
-            if (m_SpawnedTile != null)
+            if (spawnedTile != null)
             {
-                m_SpawnedTile.SetState(PlacementTileState.Filled);
+                spawnedTile.SetState(PlacementTileState.Filled);
             }
         }
 
@@ -109,45 +113,44 @@ namespace TowerDefense.Towers.Placement
         /// <param name="size"></param>
         public void Clear(IntVector2 gridPos, IntVector2 size)
         {
-            m_IsOccupied = false;
+            isOccupied = false;
 
-            if (m_SpawnedTile != null)
+            if (spawnedTile != null)
             {
-                m_SpawnedTile.SetState(PlacementTileState.Empty);
+                spawnedTile.SetState(PlacementTileState.Empty);
             }
         }
 
-        public bool isMovable()
+        public bool IsMovable()
         {
             return true;
         }
 
-        public string getMovementScriptName()
+        public string GetMovementScriptName()
         {
             return "LinearTowerMovement";
         }
 
-        public Vector3 getStartVector()
+        public Vector3 GetStartVector()
         {
-            return start_position.position;
+            return startPosition.position;
         }
 
-        public Vector3 getMiddleVector()
+        public Vector3 GetMiddleVector()
         {
             Debug.Log("Error: Linear Tower Placement Area does not have a middle node");
             return Vector3.zero;
         }
 
-        public Vector3 getEndVector()
+        public Vector3 GetEndVector()
         {
-            return end_position.position;
+            return endPosition.position;
         }
 
-        public float getSpeed()
+        public float GetSpeed()
         {
             return speed;
         }
-
 
 #if UNITY_EDITOR
         /// <summary>

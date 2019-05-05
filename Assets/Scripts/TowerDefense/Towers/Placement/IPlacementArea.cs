@@ -46,22 +46,22 @@ namespace TowerDefense.Towers.Placement
         void Clear(IntVector2 gridPos, IntVector2 size);
 
         //Returns whether or not the placement area causes the towers to move
-        bool isMovable();
+        bool IsMovable();
 
         //Returns the nsame of the associated game movement script
-        string getMovementScriptName();
+        string GetMovementScriptName();
 
         //Returns the transform of the start position
-        Vector3 getStartVector();
+        Vector3 GetStartVector();
 
         //Returns the transform of the middle position
-        Vector3 getMiddleVector();
+        Vector3 GetMiddleVector();
 
         //Returns the transform of the end position
-        Vector3 getEndVector();
+        Vector3 GetEndVector();
 
         //Returns the speed 
-        float getSpeed();
+        float GetSpeed();
 
     }
 

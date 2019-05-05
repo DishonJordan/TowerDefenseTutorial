@@ -102,32 +102,28 @@ namespace TowerDefense.Towers
                 transform.position = placementArea.GridToWorld(destination, dimensions);
                 transform.rotation = placementArea.transform.rotation;
                 targetArea.Occupy(destination, dimensions);
-                if (placementArea.isMovable())
+                if (placementArea.IsMovable())
                 {
-                    if (placementArea.getMovementScriptName().Equals("LinearTowerMovement"))
+                    if (placementArea.GetMovementScriptName().Equals("LinearTowerMovement"))
                     {
                         var script = gameObject.AddComponent<LinearTowerMovement>();
-                        script.speed = placementArea.getSpeed();
-                        script.points[0] = placementArea.getStartVector();
-                        script.points[1] = placementArea.getEndVector();
-
+                        script.speed = placementArea.GetSpeed();
+                        script.orderedPoints[0] = placementArea.GetStartVector();
+                        script.orderedPoints[1] = placementArea.GetEndVector();
                     }
-                    else if (placementArea.getMovementScriptName().Equals("MultiPointMovement"))
+                    else if (placementArea.GetMovementScriptName().Equals("MultiPointMovement"))
                     {
                         var script = gameObject.AddComponent<MultiPointMovement>();
-                        script.speed = placementArea.getSpeed();
-                        script.points[0] = placementArea.getStartVector();
-                        script.points[1] = placementArea.getMiddleVector();
-                        script.points[2] = placementArea.getEndVector();
-                        script.points[3] = placementArea.getMiddleVector();
-
+                        script.speed = placementArea.GetSpeed();
+                        script.orderedPoints[0] = placementArea.GetStartVector();
+                        script.orderedPoints[1] = placementArea.GetMiddleVector();
+                        script.orderedPoints[2] = placementArea.GetEndVector();
+                        script.orderedPoints[3] = placementArea.GetMiddleVector();
                     }
                     else
                     {
                         Debug.Log("INVALID MOVEMENT SCRIPT");
                     }
-
-
                 }
             }
 
