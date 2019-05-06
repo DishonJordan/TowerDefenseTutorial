@@ -122,10 +122,7 @@ namespace TowerDefense.Towers.Placement
             }
         }
 
-        public bool IsMovable()
-        {
-            return true;
-        }
+        public bool IsMovable() => true;
 
         public string GetMovementScriptName()
         {
