@@ -106,15 +106,17 @@ namespace TowerDefense.Towers
                 {
                     if (placementArea.GetMovementScriptName().Equals("LinearTowerMovement"))
                     {
-                        var script = gameObject.AddComponent<LinearTowerMovement>();
+                        var script = gameObject.AddComponent<TowerMovement>();
                         script.speed = placementArea.GetSpeed();
+                        script.orderedPoints = new Vector3[2];
                         script.orderedPoints[0] = placementArea.GetStartVector();
                         script.orderedPoints[1] = placementArea.GetEndVector();
                     }
                     else if (placementArea.GetMovementScriptName().Equals("MultiPointMovement"))
                     {
-                        var script = gameObject.AddComponent<MultiPointMovement>();
+                        var script = gameObject.AddComponent<TowerMovement>();
                         script.speed = placementArea.GetSpeed();
+                        script.orderedPoints = new Vector3[4];
                         script.orderedPoints[0] = placementArea.GetStartVector();
                         script.orderedPoints[1] = placementArea.GetMiddleVector();
                         script.orderedPoints[2] = placementArea.GetEndVector();
